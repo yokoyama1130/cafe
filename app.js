@@ -24,6 +24,21 @@ app.get("/cafes", async (req, res) => {
     res.render("cafe/index", { cafes });
 });
 
+// 新規登録画面へ遷移するルーティング
+app.get("/cafes/new", (req, res) => {
+    res.render("cafe/new");
+});
+
+// ポストリクエスト
+app.post("/cafes/new", async (req, res) => {
+    const cafe = new Cafe({
+        name: req.body.cafe.name,
+        price: req.body.cafe.price
+    });
+    await cafe.save();
+    res.redirect(`/cafes/${cafe._id}`);
+});
+
 // カフェ詳細ページのルーティング
 app.get("/cafes/:id", async (req, res) => {
     const cafe = await Cafe.findById(req.params.id);
