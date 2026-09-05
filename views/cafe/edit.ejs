@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カフェ編集ページ</title>
+</head>
+<body>
+    <h1>カフェ編集</h1>
+    <form action="/cafes/<%= cafe._id %>?_method=put" method="post">
+        <div>
+            <label for="name">名前</label>
+            <input type="text" name="cafe[name]" id="name" value="<%= cafe.name %>">
+        </div>
+        <div>
+            <label for="price">価格</label>
+            <input type="text" name="cafe[price]" id="price" value="<%= cafe.price %>">
+        </div>
+        <button>登録</button>
+    </form>
+    
+</body>
+</html>
