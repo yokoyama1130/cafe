@@ -66,6 +66,12 @@ app.get("/cafes/:id", async (req, res) => {
     res.render("cafe/show", { cafe });
 });
 
+// 削除機能
+app.delete("/cafes/:id", async (req, res) => {
+    await Cafe.findByIdAndDelete(req.params.id);
+    res.redirect("/cafes");
+});
+
 app.listen(8080, () => {
     console.log("ポート8080でサーバー起動");
 });

@@ -9,6 +9,9 @@
     <h1><%= cafe.name %> 詳細ページ</h1>
     <a href="/cafes">一覧へ戻る</a>
     <a href="/cafes/<%= cafe._id %>/edit">編集する</a>
+    <form action="/cafes/<%= cafe._id %>?_method=delete" method="post">
+        <button>削除する</button>
+    </form>
     
 </body>
 </html>
