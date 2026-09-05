@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
+const Cafe = require("./models/cafes");
 
 mongoose.connect('mongodb://localhost:27017/cafe')
     .then(() => {
@@ -15,8 +16,9 @@ mongoose.connect('mongodb://localhost:27017/cafe')
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req, res) => {
-    res.render("cafe/index");
+app.get("/cafes", async (req, res) => {
+    const cafes = await Cafe.find({});
+    res.render("cafe/index", { cafes });
 });
 
 app.listen(8080, () => {

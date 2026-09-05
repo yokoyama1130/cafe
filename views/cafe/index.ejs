@@ -7,6 +7,11 @@
 </head>
 <body>
     <h1>カフェ一覧ページ</h1>
+    <ul>
+        <% for (cafe of cafes) { %>
+            <li><%= cafe.name %></li>
+        <% } %>
+    </ul>
     
 </body>
 </html>

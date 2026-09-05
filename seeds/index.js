@@ -23,7 +23,7 @@ const seedDB = async () => {
     await Cafe.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const cafe = new Cafe({
-            name: `${sample(descriptors)} ${sample.places}`,
+            name: `${sample(descriptors)} ${sample(places)}`,
             location: `${randomCity.prefecture} ${randomCity.city}`,
             description: "最高に良い場所",
             price: "3000~"
