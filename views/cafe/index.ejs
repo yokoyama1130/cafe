@@ -9,7 +9,9 @@
     <h1>カフェ一覧ページ</h1>
     <ul>
         <% for (cafe of cafes) { %>
-            <li><%= cafe.name %></li>
+            <li>
+                <a href="/cafes/<%= cafe._id %>"><%= cafe.name %></a>
+            </li>
         <% } %>
     </ul>
     
